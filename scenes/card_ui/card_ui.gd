@@ -3,11 +3,17 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI) # To request reparenting so the card can be moved
 
-@export var card: Card
+const BASE_STYLEBOX:= preload("res://scenes/card_ui/card_base_stylebox.tres")
+const DRAG_STYLEBOX:= preload("res://scenes/card_ui/card_dragging_stylebox.tres")
+const HOVER_STYLEBOX:= preload("res://scenes/card_ui/card_hover_stylebox.tres")
+
+@export var card: Card : set = _set_card
 
 # Onready is an annotation that applies a nodes properties to a variable using the "$
-@onready var color: ColorRect = $Color # Make new cards have same color as child node "Color"
-@onready var state: Label = $State # Make new cards have the same formating as child node "State"
+
+@onready var panel = $Panel
+@onready var cost = $Cost
+@onready var icon = $Icon
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 @onready var targets: Array[Node] = []
@@ -41,6 +47,13 @@ func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 
 
+func _set_card(value: Card) -> void:
+	if not is_node_ready():
+		await ready
+	
+	card = value
+	cost.text = str(card.cost)
+	icon.texture = card.icon
 
 
 func _on_drop_point_detector_area_entered(area: Area2D) -> void:
