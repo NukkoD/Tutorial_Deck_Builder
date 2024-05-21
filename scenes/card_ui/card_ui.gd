@@ -103,7 +103,7 @@ func _on_card_drag_or_aiming_started(used_card: CardUI) -> void:
 	disabled = true # Disables other cards that aren't interacted with
 
 
-func _on_card_drag_or_aiming_ended(used_card: CardUI) -> void:
+func _on_card_drag_or_aiming_ended(_used_card: CardUI) -> void:
 	disabled = false
 	self.playable = char_stats.can_play_card(card) 
 
