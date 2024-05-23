@@ -10,13 +10,15 @@ extends Node
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
 	setup_chances()
-
+	
 
 func get_action() -> EnemyAction:
 	var action := get_first_conditional_action()
 	if action:
+		print("acts?")
 		return action
 	
+	print("hell naw")
 	return get_chance_based_action()
 
 
@@ -73,5 +75,4 @@ func _set_target(value: Node2D) -> void:
 	
 	for action in get_children():
 		action.target = target
-
 

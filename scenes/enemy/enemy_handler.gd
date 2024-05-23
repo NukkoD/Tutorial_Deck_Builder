@@ -3,11 +3,11 @@ extends Node2D
 
 
 func _ready() -> void:
-	Events.enemy_action_completed.connect(_on_enemy_action_completed)
-	
+	Events.enemy_action_completed.connect(_on_enemy_action_completed) 
+
 
 func reset_enemy_actions() -> void:
-	var enemy: Enemy 
+	var enemy: Enemy
 	for child in get_children():
 		enemy = child as Enemy
 		enemy.current_action = null
@@ -15,6 +15,7 @@ func reset_enemy_actions() -> void:
 
 
 func start_turn() -> void:
+	print("happn1")
 	if get_child_count() == 0:
 		return
 	
@@ -27,5 +28,5 @@ func _on_enemy_action_completed(enemy: Enemy) -> void:
 		Events.enemy_turn_ended.emit()
 		return
 	
-	var next_enemy: Enemy = get_child(enemy.get_index() + 1) as Enemy
+	var next_enemy: Enemy = get_child(enemy.get_index() + 1 ) as Enemy
 	next_enemy.do_turn()

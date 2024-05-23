@@ -10,7 +10,7 @@ extends Node2D
 
 func _ready() -> void:
 	# Normally we would do this on a 'Run'
-	# level so we keep our health, gold and deck
+	# leve so we keep our health, gold and deck
 	# between battles
 	var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = new_stats
@@ -30,5 +30,6 @@ func start_battle(stats: CharacterStats) -> void:
 
 
 func _on_enemy_turn_ended() -> void:
+	print("happened-end")
 	player_handler.start_turn()
 	enemy_handler.reset_enemy_actions()

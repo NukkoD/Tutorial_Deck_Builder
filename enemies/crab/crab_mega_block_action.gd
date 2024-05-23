@@ -6,7 +6,7 @@ extends EnemyAction
 var already_used := false
 
 
-func is_preformable() -> bool:
+func is_performable() -> bool:
 	if not enemy or already_used:
 		return false
 	
@@ -28,4 +28,3 @@ func perform_action() -> void:
 		func():
 			Events.enemy_action_completed.emit(enemy)
 	)
-	

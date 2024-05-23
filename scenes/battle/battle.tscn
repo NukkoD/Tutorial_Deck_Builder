@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bs5ftetgtycoq" path="res://scenes/enemy/enemy.tscn" id="2_v6srk"]
 [ext_resource type="PackedScene" uid="uid://byfghfv4wxsus" path="res://scenes/player/player.tscn" id="3_1hoy1"]
 [ext_resource type="PackedScene" uid="uid://dy7o5ypn6g373" path="res://scenes/card_target_selector/card_target_selector.tscn" id="3_sl21b"]
-[ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="4_7eu3n"]
-[ext_resource type="Resource" uid="uid://ddt1v8100slfi" path="res://enemies/crab/crab_enemy.tres" id="5_2u422"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="4_1uoyl"]
+[ext_resource type="Resource" uid="uid://c26l6wl3xyi7w" path="res://enemies/crab/crab_enemy.tres" id="5_t5un4"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="7_emw3n"]
 [ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="8_spig0"]
 [ext_resource type="PackedScene" uid="uid://boi0anuatsxc4" path="res://scenes/ui/mana_ui.tscn" id="10_vuir4"]
@@ -38,11 +38,11 @@ shape = SubResource("RectangleShape2D_v1ceo")
 debug_color = Color(0, 0.6, 0.701961, 0.176471)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
-script = ExtResource("4_7eu3n")
+script = ExtResource("4_1uoyl")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_v6srk")]
 position = Vector2(197, 77)
-stats = ExtResource("5_2u422")
+stats = ExtResource("5_t5un4")
 
 [node name="Player" parent="." instance=ExtResource("3_1hoy1")]
 position = Vector2(51, 79)

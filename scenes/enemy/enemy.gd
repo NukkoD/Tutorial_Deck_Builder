@@ -10,7 +10,7 @@ const ARROW_OFFSET := 5
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
 var enemy_action_picker: EnemyActionPicker
-var current_action : EnemyAction : set = set_current_action
+var current_action: EnemyAction : set = set_current_action
 
 
 func set_current_action(value: EnemyAction) -> void:
@@ -18,9 +18,11 @@ func set_current_action(value: EnemyAction) -> void:
 
 
 func set_enemy_stats(value: EnemyStats) -> void:
+	print("goes")
 	stats = value.create_instance()
 	
 	if not stats.stats_changed.is_connected(update_stats):
+		print("going?")
 		stats.stats_changed.connect(update_stats)
 		stats.stats_changed.connect(update_action)
 	
@@ -28,9 +30,12 @@ func set_enemy_stats(value: EnemyStats) -> void:
 
 
 func setup_ai() -> void:
+	
 	if enemy_action_picker:
+		print("woo?")
 		enemy_action_picker.queue_free()
 	
+	print("woo!")
 	var new_action_picker: EnemyActionPicker = stats.ai.instantiate()
 	add_child(new_action_picker)
 	enemy_action_picker = new_action_picker
@@ -46,6 +51,7 @@ func update_action() -> void:
 		return
 	
 	if not current_action:
+		print("ayy")
 		current_action = enemy_action_picker.get_action()
 		return
 	
@@ -55,6 +61,7 @@ func update_action() -> void:
 
 
 func update_enemy() -> void:
+	print("doesnt")
 	if not stats is Stats:
 		return
 	if not is_inside_tree():
@@ -67,12 +74,13 @@ func update_enemy() -> void:
 
 
 func do_turn() -> void:
-	print("does0")
+	print("happen2")
 	stats.block = 0
 	
-	if not current_action:
+	if not current_action: 
+		print("hapen-condition")
 		return
-	
+	print("hapen3")
 	current_action.perform_action()
 
 
