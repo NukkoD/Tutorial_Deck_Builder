@@ -4,7 +4,6 @@ extends EnemyAction
 
 
 func perform_action() -> void:
-	print("happ3n")
 	if not enemy or not target:
 		return
 	
@@ -13,7 +12,7 @@ func perform_action() -> void:
 	var end := target.global_position + Vector2.RIGHT * 32
 	var damage_effect := DamageEffect.new()
 	var target_array: Array[Node] = [target]
-	damage_effect.avmount = damage
+	damage_effect.amount = damage
 	
 	tween.tween_property(enemy, "global_position", end, 0.4)
 	tween.tween_callback(damage_effect.execute.bind(target_array))

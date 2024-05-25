@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtpbpun64ifwj"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy_action_picker.gd" id="1_jhrnt"]
-[ext_resource type="Script" path="res://enemies/crab/crab_attack_action.gd" id="2_ivnnj"]
-[ext_resource type="Script" path="res://enemies/crab/crab_block_action.gd" id="3_bs5pm"]
-[ext_resource type="Script" path="res://enemies/crab/crab_mega_block_action.gd" id="4_k3hl1"]
+[ext_resource type="Script" path="res://enemies/crab/actions/crab_attack_action.gd" id="2_ljhvq"]
+[ext_resource type="Script" path="res://enemies/crab/actions/crab_block_action.gd" id="3_diy44"]
+[ext_resource type="Script" path="res://enemies/crab/actions/crab_mega_block_action.gd" id="4_cnhbt"]
 
 [node name="CrabEnemyAI" type="Node"]
 script = ExtResource("1_jhrnt")
 
 [node name="AttackAction" type="Node" parent="."]
-script = ExtResource("2_ivnnj")
+script = ExtResource("2_ljhvq")
 type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
-script = ExtResource("3_bs5pm")
+script = ExtResource("3_diy44")
 type = 1
 chance_weight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
-script = ExtResource("4_k3hl1")
+script = ExtResource("4_cnhbt")

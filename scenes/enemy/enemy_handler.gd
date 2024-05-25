@@ -15,7 +15,6 @@ func reset_enemy_actions() -> void:
 
 
 func start_turn() -> void:
-	print("happn1")
 	if get_child_count() == 0:
 		return
 	
